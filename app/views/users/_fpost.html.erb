@@ -10,9 +10,11 @@
           <p class="mb-0"><%= micropost.content %></p>
         </div>
         <%= render "favolites/favolites_button", mpost: micropost %>
+        <div>
           <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm　display-inline' %>
+            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
+        </div>
       </div>
     </li>
   <% end %>

@@ -1,12 +1,12 @@
 
   <% if current_user.favoliting?(mpost) %>
-    <%= form_with(model: current_user.favorites.find_by(micropost_id: mpost.id), local: true, method: :delete) do |f| %>
+    <%= form_with(model: current_user.favorites.find_by(micropost_id: mpost.id), local: true, method: :delete, class: "form-inline" ) do |f| %>
       <%= hidden_field_tag :like_id, mpost.id %>
-      <%= f.submit 'お気に入りを解除', class: 'btn btn-danger btn-block' %>
+      <%= f.submit 'unlike', class: 'btn btn-secondary btn-sm mb-2' %>
     <% end %>
   <% else %>
-    <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+    <%= form_with(model: current_user.favorites.build, local: true, class: "form-inline") do |f| %>
       <%= hidden_field_tag :like_id, mpost.id %>
-      <%= f.submit 'お気に入りに登録', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'like', class: 'btn btn-primary btn-sm mb-2' %>
     <% end %>
   <% end %>

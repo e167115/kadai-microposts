@@ -50,5 +50,5 @@ class User < ApplicationRecord
     def favoliting?(mpost)
         self.fav_posts.include?(mpost)
     end
-        
+    
 end
